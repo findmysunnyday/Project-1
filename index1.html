@@ -1,52 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Red Light</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Wake Up In A FLASH!</title>
 </head>
+
 <body>
 
-<div class="grid-container">
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-    <div class="grid-item"></div>
-</div>
-
-<script>
-    function lightRandomRed() {
-        // Remove 'highlight' from any currently highlighted item
-        document.querySelectorAll('.highlight').forEach(item => item.classList.remove('highlight'));
-
-        // Select all grid items
-        const gridItems = document.querySelectorAll('.grid-item');
-
-        // Generate a random index for the grid items
-        const randomIndex = Math.floor(Math.random() * gridItems.length);
-
-        // Apply the 'highlight' class to the randomly selected grid item
-        gridItems[randomIndex].classList.add('highlight');
-    }
-
-    // Light up a random grid item when the page loads
-    lightRandomRed();
-
-    // Optional: Change the red light every 1 second
-    setInterval(lightRandomRed, 750);
-</script>
-
+    <div class="grid-container">
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+    </div>
+    <script src="./assets/script.js"></script>
 </body>
+
 </html>
