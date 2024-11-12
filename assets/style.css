@@ -1,0 +1,15 @@
+/* Grid container for 4x4 layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 400px; /* Adjust width to your preference */
+  margin: auto;
+}
+/* Style each square */
+.grid-item {
+  background-color: #000;
+  width: 100px;
+  height: 100px;
+}
+
