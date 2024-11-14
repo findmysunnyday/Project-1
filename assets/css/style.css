@@ -1,0 +1,66 @@
+/* Custom Colors */
+.bg-light-blue {
+  background-color: #d8e6f0;
+}
+
+.bg-dark-blue {
+  background-color: #1f4e78;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.bg-grey {
+  background-color: #f0f0f0;
+}
+
+#start-btn {
+  margin-bottom: 20px;
+}
+
+/* Full-page fixed background */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden;
+  background: url('../images/media/Project-Flashy.gif') no-repeat center center fixed;
+  background-size: cover; 
+}
+
+/* Transparent content areas for the game */
+#start-page, #game-page {
+  background-color: rgba(216, 230, 240, 0.9); 
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); 
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+/* Leaderboard Styling */
+.leaderboard-container {
+  max-width: 400px;
+  overflow-y: auto;
+  background-color: #f7f7f7;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
