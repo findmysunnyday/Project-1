@@ -1,54 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Wake Up In A Flash</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/css/style.css?v=1.0">
+        <link rel="stylesheet" href="./assets/css/menu.css?v=1.0">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Landing Page</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/style.css">
-</head>
+    <body class="bg-light-blue">
 
-<body>
-    <nav class="d-flex justify-content-end">
-        <button type="button" class="btn btn-outline-primary">Leadership Board</button> 
+        <div class="background-overlay"></div>
+
+        <!-- Hamburger Menu Button -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <!-- Sidebar Navigation Menu -->
+        <div id="menu" class="menu">
+            <ul>
+                <li><a href="#start-page">Home</a></li>
+                <li><a href="#game-page">Game</a></li>
+                <li><a href="#leaderboard">Leaderboard</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Full-width Header for Starting Page -->
+        <div id="header-title" class="bg-dark-blue text-white py-3 text-center">
+            <h1>Wake Up In A Flash</h1>
+        </div>
+
+        <!-- Starting Page Content -->
+        <div id="start-page" class="container text-center mt-5">
+            <div class="mb-4 mt-3">
+                <input type="text" id="player-name" class="form-control" placeholder="Enter your name">
+            </div>
         
-    </nav>
-    <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-6">
-                <h1 class="text-center mb-4">Welcome to the Game</h1>
-                <form id="formId">
+            <!-- Tier Selection Buttons - Now above the Start button -->
+            <div class="tier-buttons mb-4">
+                <button class="btn btn-success tier-button" onclick="setTier(1, this)">Tier 1</button>
+                <button class="btn btn-warning tier-button" onclick="setTier(2, this)">Tier 2</button>
+                <button class="btn btn-danger tier-button" onclick="setTier(3, this)">Tier 3</button>
+            </div>
+            
+            <!-- Start Button - Placed below the Tier buttons -->
+            <button id="start-btn" class="btn btn-primary">Start</button>
 
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="level">Game Level</label>
-                        <select class="form-control" id="level" required>
-                            <option value="">Select level</option>
-                            <option value="beginner">Beginner</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="advanced">Advanced</option>
-                        </select>
-                    </div>
-
-                    <button type="button" class="btn btn-outline-primary btn-block">Let's Play</button>
-
-                </form>
+            <!-- Leaderboard Section -->
+            <div id="leaderboard" class="leaderboard-container mt-5 mx-auto">
+                <h3 class="text-dark-blue">Leaderboard for Tier <span id="tier-label">1</span></h3>
+                <ul class="list-group" id="leaderboard-list"></ul>
             </div>
         </div>
-    </div>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+        <!-- Game Page (Initially Hidden) -->
+        <div id="game-page" class="d-none text-center mt-5">
+            <!-- Centered Welcome Message Section -->
+            <div class="welcome-container bg-dark-blue text-white py-3 mx-auto">
+                <h2 id="welcome-message"></h2>
+            </div>
+        
+            <!-- Game Content -->
+            <div class="game-container bg-grey p-4 mt-4">
+                <div id="timer-container" class="timer-box mb-3">
+                    <div id="timer" class="text-danger fw-bold">Time: 0s</div>
+                </div>
+                <div id="score-container" class="mb-3">
+                    <span id="score" class="text-success fw-bold">Score: 0</span>
+                </div>
+                <div id="grid" class="grid-container"></div>
+            </div>
+        </div>
+
+        <!-- Bootstrap JavaScript Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./assets/js/script.js?v=1.0"></script>
+        <script src="./assets/js/menu.js?v=1.0"></script>
+    </body>
 
 </html>

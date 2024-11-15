@@ -1,0 +1,64 @@
+/* Hamburger Menu Icon */
+.hamburger-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px;
+  width: 30px;
+}
+
+.hamburger-menu .bar {
+  width: 100%;
+  height: 4px;
+  background-color: #333;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Sidebar Menu with Semi-Transparent Background */
+.menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden by default */
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(216, 230, 240, 0.9); 
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  z-index: 9;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+/* Add margin to move the menu items down */
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 60px; 
+}
+
+.menu ul li {
+  margin: 20px 0;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.menu ul li a:hover {
+  color: #007bff; 
+}
+
+
+/* Active state for menu (when visible) */
+.menu.active {
+  left: 0;
+}
