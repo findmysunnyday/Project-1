@@ -27,7 +27,7 @@ body {
   padding: 0;
   height: 100vh;
   overflow-x: hidden;
-  background: url('../images/media/Project-Flashy.gif') no-repeat center center fixed;
+  background: url('../images/Project\ Flashy.gif') no-repeat center center fixed;
   background-size: cover; 
 }
 
