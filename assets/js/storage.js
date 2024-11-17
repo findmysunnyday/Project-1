@@ -19,11 +19,10 @@ function getMostRecentUserScoresForLeaderboard(userName, tierNumber, numberOfSco
 }
 
 
-
 //Functions to facilitate Game Page
 
 
-function storeUserScore(userName, tierNumber, score) {
+function storeUserScore(score) {
     const userName = localStorage.setItem("userName", userName)
     const tierNumber = localStorage.setItem("tierNumber", tierNumber)
 
@@ -34,7 +33,7 @@ function storeUserScore(userName, tierNumber, score) {
     };
     
     let userScoresArray = _getUserScoresFromStorage();
-  userScoresArray.push(numberOfScores);
+  userScoresArray.push(userScore);
 
   localStorage.setItem("userScoresArray", JSON.stringify(userScoresArray));
 }
@@ -46,7 +45,7 @@ function getMostRecentScoresForLeaderboard(userName, tierNumber, numberOfScores)
       (item) => item.userName === userName && item.tierNumber === tierNumber
     );
   
-    filteredArray.slice(0, 7);
+    return filteredArray.slice(0, numberOfScores);
   }
 
  //DO NOT USE!! THIS IS AN INTERNAL FUNCTION!!
