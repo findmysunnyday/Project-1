@@ -1,4 +1,4 @@
-/* Hamburger Menu Icon */
+/* Hamburger Menu Button */
 .hamburger-menu {
   position: fixed;
   top: 20px;
@@ -8,57 +8,98 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 24px;
-  width: 30px;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  background-color: #004080;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .hamburger-menu .bar {
-  width: 100%;
+  display: block;
+  width: 25px;
   height: 4px;
-  background-color: #333;
+  background-color: #d8e6f0;
+  margin: 2px 0;
   border-radius: 5px;
   transition: all 0.3s ease;
 }
 
-/* Sidebar Menu with Semi-Transparent Background */
+/* Side Menu */
 .menu {
   position: fixed;
   top: 0;
-  left: -250px; /* Hidden by default */
+  left: -250px;
   height: 100vh;
   width: 250px;
-  background-color: rgba(216, 230, 240, 0.9); 
+  background-color: rgba(216, 230, 240, 0.95);
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-  transition: left 0.3s ease;
+  transition: left 0.4s ease;
   z-index: 9;
-  padding: 20px;
-  backdrop-filter: blur(5px);
+  padding-top: 80px;
 }
 
-/* Add margin to move the menu items down */
 .menu ul {
-  list-style-type: none;
+  list-style-type: none; 
   padding: 0;
-  margin-top: 60px; 
+  margin: 0;
 }
 
 .menu ul li {
-  margin: 20px 0;
+  margin: 20px 0; 
 }
 
 .menu ul li a {
+  display: block;
+  padding: 12px 20px; 
   text-decoration: none;
-  color: #333;
+  color: #333; 
   font-size: 1.2rem;
-  transition: color 0.3s ease;
+  border-radius: 8px; 
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Hover effect for menu items */
 .menu ul li a:hover {
-  color: #007bff; 
+  background-color: #007bff; 
+  color: white; 
 }
 
-
-/* Active state for menu (when visible) */
 .menu.active {
   left: 0;
+}
+
+/* Dropdown Styles */
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  transition: max-height 0.3s ease;
+}
+
+.dropdown.active .dropdown-content {
+  max-height: 200px;
+}
+
+.dropdown-content li {
+  margin: 10px 0;
+  padding-left: 30px;
+}
+
+.dropdown-content li a {
+  padding: 8px 15px;
+  display: block;
+  text-decoration: none;
+  color: #444;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for submenu items */
+.dropdown-content li a:hover {
+  background-color: #0056b3;
+  color: white;
 }

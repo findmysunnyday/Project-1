@@ -2,5 +2,15 @@
 function toggleMenu() {
   const menu = document.getElementById('menu');
   menu.classList.toggle('active');
-  console.log('Menu toggled:', menu.classList.contains('active') ? 'Opened' : 'Closed');
+}
+
+function toggleDropdown(event) {
+  event.preventDefault();
+  const dropdown = event.target.closest('.dropdown');
+
+  if (dropdown.classList.contains('active')) {
+      dropdown.classList.remove('active');
+  } else {
+      dropdown.classList.add('active');
+  }
 }
