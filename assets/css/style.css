@@ -17,8 +17,19 @@
   background-color: #f0f0f0;
 }
 
-#start-btn {
-  margin-bottom: 20px;
+/* Notifications for linked pages */
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: opacity 0.3s ease;
 }
 
 /* Full-page fixed background */
@@ -27,9 +38,45 @@ body {
   padding: 0;
   height: 100vh;
   overflow-x: hidden;
-  background: url('../images/Project\ Flashy.gif') no-repeat center center fixed;
-  background-size: cover; 
+  background: url('../images/Project-Flashy.gif') no-repeat center center fixed;
+  background-size: cover;
 }
+
+/* Welcome Message Styling */
+.welcome-container {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #004080; /* Same blue background */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Intro Title Styling */
+.title-container {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #004080; /* Same blue background */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item {
+  background-color: #007bff;
+  height: 0;
+  padding-bottom: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.grid-item.clicked { background-color: #ffc107; }
+.grid-item.wrong-click { background-color: #dc3545; }
+.grid-item.highlight { background-color: #ffd700; }
 
 /* Transparent content areas for the game */
 #start-page, #game-page {
@@ -42,25 +89,45 @@ body {
 }
 
 .background-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); 
-  z-index: -1;
-  pointer-events: none;
+  background-color: transparent;
 }
 
+.game-mode {
+  display: none;
+}
 
-/* Leaderboard Styling */
-.leaderboard-container {
-  max-width: 400px;
-  overflow-y: auto;
-  background-color: #f7f7f7;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.d-none {
+  display: none !important;
+}
+
+.d-block {
+  display: block;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.game-mode-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.game-mode-tabs a {
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.game-mode-tabs a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.active-square {
+  background-color: #28a745;
+  transition: background-color 0.3s ease;
 }
