@@ -203,10 +203,9 @@ function endGame() {
 
   /* begin score calculation and stoering the score  */
   let elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
-  let player_score = (10 / elapsedTime) * 15;
-  console.log(`${startTime} ${elapsedTime}  ${player_score}`);
+  let player_score = (10 / elapsedTime) * targetClicks;
   storePlayerScore(player_score);
-  /* end score calculation and stoering the score */
+  /* end score calculation and storing the score */
 
   clearInterval(timerInterval);
   showNotification(`Congratulations! You reached ${targetClicks} clicks!`);
