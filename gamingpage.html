@@ -1,114 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/classic-mode.css?v=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css?v=1.0">
-    <link rel="stylesheet" href="./assets/css/menu.css?v=1.0">
-    
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/classic-mode.css?v=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css?v=1.0">
+  <link rel="stylesheet" href="./assets/css/menu.css?v=1.0">
 
-  <body>
+</head>
 
-    <link rel="preload" href="./assets/images/Project-Flashy.gif" as="image">
-    <div id="notification" class="notification d-none"></div>
+<body>
 
-      <!-- Hamburger Menu Button -->
-      <div class="hamburger-menu" onclick="toggleMenu()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+  <link rel="preload" href="./assets/images/Project-Flashy.gif" as="image">
+  <div id="notification" class="notification d-none"></div>
+
+  <!-- Hamburger Menu Button -->
+  <div class="hamburger-menu" onclick="toggleMenu()">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <!-- Sidebar Navigation Menu -->
+  <div id="menu" class="menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gamingpage.html?mode=classic">Classic Mode</a></li>
+      <li><a href="gamingpage.html?mode=flash-match">Flash Match</a></li>
+    </ul>
+  </div>
+
+  <!-- Game Mode Title Container -->
+  <div id="game-mode-title" class="welcome-container bg-dark-blue text-white py-3 mx-auto">
+    <h2>Wake Up In A Flash - Classic Mode</h2>
+  </div>
+
+  <!-- Player Name Input Section -->
+  <div id="start-page" class="container text-center mt-5">
+    <div class="mb-4 mt-3">
+      <input type="text" id="player-name" class="form-control" placeholder="Enter your name">
+    </div>
+
+    <!-- Tier Selection Buttons -->
+    <div class="tier-buttons mb-4">
+      <button class="btn btn-success tier-button" onclick="setTier(1, this)">Tier 1</button>
+      <button class="btn btn-warning tier-button" onclick="setTier(2, this)">Tier 2</button>
+      <button class="btn btn-danger tier-button" onclick="setTier(3, this)">Tier 3</button>
+    </div>
+
+    <!-- Start Button -->
+    <button id="start-btn" class="btn btn-primary" onclick="startClassicGame()">Start Game</button>
+
+    <!-- Leaderboard Section -->
+    <div id="leaderboard-container" class="d-none leaderboard-box">
+      <h3 class="leaderboard-title">Leaderboard</h3>
+      <div id="leaderboard-list" class="leaderboard-scroll">
+        <!-- Leaderboard entries will be dynamically added here -->
       </div>
+    </div>
 
-      <!-- Sidebar Navigation Menu -->
-      <div id="menu" class="menu">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="gamingpage.html?mode=classic">Classic Mode</a></li>
-            <li><a href="gamingpage.html?mode=flash-match">Flash Match</a></li>
-        </ul>
+  </div>
+
+  <!-- Welcome Message Container (Initially Hidden) -->
+  <div id="welcome-message-container" class="welcome-container d-none bg-dark-blue text-white py-3 mx-auto">
+    <h2 id="welcome-message"></h2>
+  </div>
+
+  <!-- Classic Mode Game Page (Initially Hidden) -->
+  <div id="game-page" class="d-none text-center mt-5">
+    <div class="game-container bg-grey p-4">
+      <div id="timer-container" class="timer-box mb-3">
+        <div id="timer" class="text-danger fw-bold">Time: 0s</div>
       </div>
-
-      <!-- Game Mode Title Container -->
-      <div id="game-mode-title" class="welcome-container bg-dark-blue text-white py-3 mx-auto">
-        <h2>Wake Up In A Flash - Classic Mode</h2>
+      <div id="score-container" class="mb-3">
+        <span id="score" class="text-success fw-bold">Score: 0</span>
       </div>
+      <div id="grid" class="grid-container"></div>
+    </div>
+  </div>
 
-        <!-- Player Name Input Section -->
-        <div id="start-page" class="container text-center mt-5">
-          <div class="mb-4 mt-3">
-              <input type="text" id="player-name" class="form-control" placeholder="Enter your name">
-          </div>
+  </div>
 
-          <!-- Tier Selection Buttons -->
-          <div class="tier-buttons mb-4">
-              <button class="btn btn-success tier-button" onclick="setTier(1, this)">Tier 1</button>
-              <button class="btn btn-warning tier-button" onclick="setTier(2, this)">Tier 2</button>
-              <button class="btn btn-danger tier-button" onclick="setTier(3, this)">Tier 3</button>
-          </div>
+  <!-- Flash Match -->
+  <div id="flash-match-container" class="game-mode d-none">
+    <h2>Flash Match</h2>
+    <div id="game-info">
+      <p>Time Left: <span id="flash-timer">30</span> seconds</p>
+      <p>Score: <span id="flash-score">0</span></p>
+    </div>
+    <div id="flash-grid" class="grid-container"></div>
+    <button id="flash-start-btn" class="btn btn-primary">Start Flash Match</button>
+  </div>
 
-          <!-- Start Button -->
-          <button id="start-btn" class="btn btn-primary" onclick="startClassicGame()">Start Game</button>
+  <!-- Existing Game Mode Section (also hidden by default) -->
+  <div id="existing-game-container" class="game-mode d-none">
+    <!-- Existing game content here -->
+  </div>
 
-          <!-- Leaderboard Section -->
-          <div id="leaderboard-container" class="d-none leaderboard-box">
-            <h3 class="leaderboard-title">Leaderboard</h3>
-            <div id="leaderboard-list" class="leaderboard-scroll">
-                <!-- Leaderboard entries will be dynamically added here -->
-            </div>
-          </div>
 
-        </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/classic-mode.js?v=1.0"></script>
+  <script src="./assets/js/flash-match.js?v=1.0"></script>
+  <script src="./assets/js/script.js?v=1.0"></script>
+  <script src="./assets/js/menu.js?v=1.0"></script>
+  <script src="./assets/js/storage.js"></script>
 
-      <!-- Welcome Message Container (Initially Hidden) -->
-      <div id="welcome-message-container" class="welcome-container d-none bg-dark-blue text-white py-3 mx-auto">
-          <h2 id="welcome-message"></h2>
-      </div>
-
-        <!-- Classic Mode Game Page (Initially Hidden) -->
-        <div id="game-page" class="d-none text-center mt-5">
-            <div class="game-container bg-grey p-4">
-                <div id="timer-container" class="timer-box mb-3">
-                    <div id="timer" class="text-danger fw-bold">Time: 0s</div>
-                </div>
-                <div id="score-container" class="mb-3">
-                    <span id="score" class="text-success fw-bold">Score: 0</span>
-                </div>
-                <div id="grid" class="grid-container"></div>
-            </div>
-        </div>
-
-      </div>
-
-      <!-- Flash Match -->
-      <div id="flash-match-container" class="game-mode d-none">
-          <h2>Flash Match</h2>
-          <div id="game-info">
-              <p>Time Left: <span id="flash-timer">30</span> seconds</p>
-              <p>Score: <span id="flash-score">0</span></p>
-          </div>
-          <div id="flash-grid" class="grid-container"></div>
-          <button id="flash-start-btn" class="btn btn-primary">Start Flash Match</button>
-      </div>
-
-      <!-- Existing Game Mode Section (also hidden by default) -->
-      <div id="existing-game-container" class="game-mode d-none">
-      <!-- Existing game content here -->
-      </div>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/js/classic-mode.js?v=1.0"></script>
-    <script src="./assets/js/flash-match.js?v=1.0"></script>
-    <script src="./assets/js/script.js?v=1.0"></script>
-    <script src="./assets/js/menu.js?v=1.0"></script>
-
-  </body>
+</body>
 
 </html>
-

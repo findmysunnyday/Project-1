@@ -1,56 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Wake Up In A Flash</title>
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="./assets/css/style.css?v=1.0">
-        <link rel="stylesheet" href="./assets/css/menu.css?v=1.0">
-    </head>
 
-    <body class="bg-light-blue">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wake Up In A Flash</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css?v=1.0">
+    <link rel="stylesheet" href="./assets/css/menu.css?v=1.0">
+</head>
 
-        <div class="background-overlay"></div>
+<body class="bg-light-blue">
 
-        <!-- Hamburger Menu Button (Closed State) -->
-        <div class="hamburger-menu" id="hamburger-closed" onclick="toggleMenu()">
+    <div class="background-overlay"></div>
+
+    <!-- Hamburger Menu Button (Closed State) -->
+    <div class="hamburger-menu" id="hamburger-closed" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Sidebar Navigation Menu (Initially Hidden) -->
+    <div id="menu" class="menu">
+        <!-- Hamburger Menu Button (Open State) -->
+        <div class="hamburger-menu open" id="hamburger-open" onclick="toggleMenu()">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" onclick="toggleDropdown(event)">Game Modes</a>
+                <ul class="dropdown-content">
+                    <li><a href="gamingpage.html?mode=classic">Classic Mode</a></li>
+                    <li><a href="gamingpage.html?mode=flash-match">Flash Match</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
 
-        <!-- Sidebar Navigation Menu (Initially Hidden) -->
-        <div id="menu" class="menu">
-            <!-- Hamburger Menu Button (Open State) -->
-            <div class="hamburger-menu open" id="hamburger-open" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="#" onclick="toggleDropdown(event)">Game Modes</a>
-                    <ul class="dropdown-content">
-                        <li><a href="gamingpage.html?mode=classic">Classic Mode</a></li>
-                        <li><a href="gamingpage.html?mode=flash-match">Flash Match</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
+    <!-- Welcome Message Container -->
+    <div id="welcome-container" class="welcome-container bg-dark-blue text-white py-3 mx-auto mt-4">
+        <h2>Welcome to Wake Up In A Flash</h2>
+    </div>
 
-        <!-- Welcome Message Container -->
-        <div id="welcome-container" class="welcome-container bg-dark-blue text-white py-3 mx-auto mt-4">
-            <h2>Welcome to Wake Up In A Flash</h2>
-        </div>
-
-        <!-- Bootstrap JavaScript Bundle -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="./assets/js/script.js?v=1.0"></script>
-        <script src="./assets/js/menu.js?v=1.0"></script>
-    </body>
+    <!-- Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/script.js?v=1.0"></script>
+    <script src="./assets/js/menu.js?v=1.0"></script>
+    <script src="./assets/js/storage.js"></script>
+</body>
 
 </html>
