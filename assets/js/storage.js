@@ -30,6 +30,8 @@ function storeUserScore(score) {
         userName: userName,
         tierNumber: tierNumber,
         score: score,
+        completedDateAndTime: new Date()
+
     };
     
     let userScoresArray = _getUserScoresFromStorage();
@@ -44,8 +46,16 @@ function getMostRecentScoresForLeaderboard(userName, tierNumber, numberOfScores)
     let filteredArray = userScoresArray.filter(
       (item) => item.userName === userName && item.tierNumber === tierNumber
     );
+
+    let sortedArray = filteredArray.sort(function(userScore1,userScore2) {
+      if (userScore2.completedDateAndTime < userScore1.completedDateAndTime)
+        return -1;
+      if (userScore2.completedDateAndTime > userScore1.completedDateAndTime)
+        return 1;
+      return 0;
+    })
   
-    return filteredArray.slice(0, numberOfScores);
+    return sortedArray.slice(0, numberOfScores);
   }
 
  //DO NOT USE!! THIS IS AN INTERNAL FUNCTION!!
@@ -60,8 +70,15 @@ function _getUserScoresFromStorage() {
     }
   
     return userScoresArray;
-
 }
+
+
+
+
+
+
+
+
 
 
 function getTopScoreByTier(tierNumber) {
