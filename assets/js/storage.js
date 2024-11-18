@@ -88,7 +88,8 @@ function getMostRecentPlayerScoresForLeaderboard(
   let playerScoresArray = _getPlayerScoresFromStorage();
 
   let filteredArray = playerScoresArray.filter(
-    (item) => item.playerName === playerName && item.tierNumber === tierNumber
+    (item) =>
+      item.playerName === playerName && Number(item.tierNumber) === tierNumber
   );
 
   if (!filteredArray) filteredArray = [];
@@ -183,7 +184,7 @@ function _getPlayerScoresSortedByTierNumberDescending(tierNumber) {
   let playerScoresArray = _getPlayerScoresFromStorage();
 
   let filteredArray = playerScoresArray.filter(
-    (item) => item.tierNumber === tierNumber
+    (item) => Number(item.tierNumber) === tierNumber
   );
 
   let sortedArray = filteredArray.sort(function (playerScore1, playerScore2) {
@@ -204,7 +205,8 @@ function _getPlayerScoresSortedDescendingForPlayerTier(playerName, tierNumber) {
   let playerScoresArray = _getPlayerScoresFromStorage();
 
   let filteredArray = playerScoresArray.filter(
-    (item) => item.playerName == playerName && item.tierNumber === tierNumber
+    (item) =>
+      item.playerName == playerName && Number(item.tierNumber) === tierNumber
   );
 
   let sortedArray = filteredArray.sort(function (playerScore1, playerScore2) {
