@@ -1,0 +1,32 @@
+/* Remove default margin and padding */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.background-sleepy {
+  background: url("../../assets/gif/sleepy.gif") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.background-happy {
+  background: url("../../assets/gif/happy2.gif") no-repeat center center fixed;
+  background-size: cover;
+}
+
+#go-to-game {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#go-to-game:hover {
+  background: #0056b3;
+}

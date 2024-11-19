@@ -5,31 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wake Up In A Flash</title>
-
-    <style>
-        /* Remove default margin and padding */
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/css/finaleffects.css">
 </head>
 
 <body class="bg-light-blue">
+    <button id="go-to-game" aria-label="Navigate to the gaming page">Go to Game</button>
 </body>
 
 <script>
     let effects = localStorage.getItem("effects");
-    if (effects && effects === 'sleepy') {
-        document.body.style.background = "url('./assets/gif/sleepy.gif') no-repeat center center fixed";
-        document.body.style.backgroundSize = "cover";
-    }
-    else {
-        document.body.style.background = "url('./assets/gif/happy2.gif') no-repeat center center fixed";
-        document.body.style.backgroundSize = "cover";
+
+    if (effects === "sleepy") {
+        document.body.classList.add("background-sleepy");
+    } else {
+        document.body.classList.add("background-happy");
     }
 
-    document.addEventListener("click", function () {
+    document.getElementById("go-to-game").addEventListener("click", function () {
         location.assign('./gamingpage.html?mode=classic');
     });
 </script>
