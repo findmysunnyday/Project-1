@@ -10,31 +10,29 @@ When worker is falling asleep behind the computer and coffee just won't work, ha
 
 * It's done when the user opens the game on a landing page and the game prompts the user to enter their name and email.
 
-* It's done when the user clicks the start button and the timer starts for one minute and 60 squares are set to light up within that one minute.
+* It's done when the user clicks the start button and the timer starts to see how quickly the user can click each randomly lit square.
+ 
+* It's done when the user can interact with game and store clicks as they move as fast as possible.
+
+* It's done when the game page shows 16 buttons, four rows of four.
+
+* Its' done when the squares start randomly lighting up.
+
+* It's done when after the first box lights up, the user clicks it, and then continues click boxes as they light up until they have have clicked enough times to win or lose depending on how fast they are.
   
-* Its' done when random sqaures start lighting up.
-* It's done when the user has to see it and click it as fast as possible.
-
-* It's done when the game page shows 16 buttons, four rows of four, and a randomm box lights up.
-
-* It's done when after the first box lights up, user clicks it, and then continues click boxes as they light up until the timer stops.
 * It's done when the app has stored the amount of successful clicks and gives the the user a score from 0-60.
 
-* It's done when the user wins immediately by clicking successfully all boxes within the given time contraint and then a GIF appears and a point is given to the user.
+* It's done when the player wins immediately by clicking successfully all boxes within the given time contraint and then a GIF appears and a point is given to the user.
 
-* It's done when the game lights up and de-lights a square quickly.
-* It's done when the user successfully clicks on the lit square before the next square randomly lights up.
+*It's done when a the player clicks boxes below the set speed for slow and then a GIF appears.
 
-* It's done when the user receives a different GIF for getting a moderate score between 30-59. 
+*It's done when the player can choose to go back to the game screen to play again.
 
-* It's done when a user does not finish the game in time and the modal asks to play again or not.
-  
-* It's done when the user ends the game by clicking stop or closing the browser.
-  
-* It's done when the user finishes all lit buttons within one minute and wins.
-  
-* It's done when the user wins and a fun GIF pops up with inspirational quote.
-* It's done when the user misclicks the button or does not make the time limit and dies.
+*It's done when the player can choose which tier to play to add difficulty to the game and challenge oneself.
+
+SCREENSHOTS:
+
+
 
 ## Assets
 
