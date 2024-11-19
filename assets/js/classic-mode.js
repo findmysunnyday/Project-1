@@ -241,4 +241,15 @@ function resetGame() {
   clicksAchieved = 0;
 }
 
-function displayLeaderboard(playerName, tierNumber) {}
+function displayLeaderboard(playerName, tierNumber) {
+  let playerScoresArray = getTopScoresForPlayerTier(playerName, tierNumber, 7);
+  const leaderboardDisplay = document.getElementById("leaderboard-list");
+  leaderboardDisplay.replaceChildren();
+  
+  if (playerScoresArray && playerScoresArray.length > 0) {
+   playerScoresArray.forEach(element => {
+    let div= document.createElement("div")
+    div.innerText = element.score;
+    leaderboardDisplay.appendChild(div);
+   });}
+}
