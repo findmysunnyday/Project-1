@@ -53,3 +53,16 @@ body {
   font-weight: bold;
   /* Bold headers */
 }
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .responsive-image {
+    width: 100%;
+    /* Full width on small screens */
+    height: auto;
+  }
+}
