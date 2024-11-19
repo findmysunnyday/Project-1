@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wake Up In A Flash</title>
+
+    <style>
+        /* Remove default margin and padding */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-light-blue">
+</body>
+
+<script>
+    let effects = localStorage.getItem("effects");
+    if (effects && effects === 'sleepy') {
+        document.body.style.background = "url('./assets/gif/sleepy.gif') no-repeat center center fixed";
+        document.body.style.backgroundSize = "cover";
+    }
+    else {
+        document.body.style.background = "url('./assets/gif/happy2.gif') no-repeat center center fixed";
+        document.body.style.backgroundSize = "cover";
+    }
+
+    document.addEventListener("click", function () {
+        location.assign('./gamingpage.html?mode=classic');
+    });
+</script>
+
+</html>

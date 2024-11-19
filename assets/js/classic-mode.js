@@ -10,6 +10,8 @@ let tierSelected = false;
 let currentTier = 0;
 let selectedButton = null;
 
+let playTime = 0;
+
 // Elements
 const startPage = document.getElementById("start-page");
 const gamePage = document.getElementById("game-page");
@@ -23,6 +25,7 @@ window.addEventListener("load", () => {
   console.log("Page loaded - resetting tier selection");
   tierSelected = false;
   currentTier = 0;
+  playTime = 0;
   const buttons = document.querySelectorAll(".tier-button");
   buttons.forEach((btn) => btn.classList.remove("active"));
   let tierLabelElement = document.getElementById("tier-label");
@@ -130,6 +133,7 @@ function startClassicGame() {
     showNotification("Please select a Tier!");
     return;
   }
+  playTime = 0;
 
   console.log("Starting the game...");
 
@@ -204,15 +208,31 @@ function endGame() {
   isGameRunning = false;
 
   /* begin score calculation and stoering the score  */
+  let timedifference = Date.now() - startTime;
+
+  const seconds = Math.floor(timedifference / 1000); // Whole seconds
+  const milliseconds = timedifference % 1000; //
+  let playtime = `${seconds}.${milliseconds}`;
+
   let elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
   let player_score = Math.round((10 / elapsedTime) * targetClicks);
-  storePlayerScore(player_score);
+  storePlayerScore(player_score, playtime);
   /* end score calculation and storing the score */
 
   clearInterval(timerInterval);
   showNotification(`Congratulations! You reached ${targetClicks} clicks!`);
+  let value = "happy";
+  if (currentTier === 1 && elapsedTime > 13) {
+    value = "sleepy";
+  } else if (currentTier === 2 && elapsedTime > 15) {
+    value = "sleepy";
+  } else if (currentTier === 3 && elapsedTime > 17) {
+    value = "sleepy";
+  }
 
-  resetGame();
+  localStorage.setItem("effects", value);
+  redirectPage("finaleffects.html");
+  //resetGame();
 }
 
 function resetGame() {
@@ -239,6 +259,67 @@ function resetGame() {
   isGameRunning = false;
   score = 0;
   clicksAchieved = 0;
+  playTime = 0;
 }
 
-function displayLeaderboard(playerName, tierNumber) {}
+function displayLeaderboard(playerName, tierNumber) {
+  console.log(`displayLeaderboard ${playerName}, ${tierNumber}`);
+  const leaderboardList = document.getElementById("leaderboard-list");
+  leaderboardList.replaceChildren();
+
+  let playerScoresArray = getTopScoresForPlayerTier(playerName, tierNumber, 7);
+  /*
+  let playerScoresArray = getMostRecentPlayerScoresForLeaderboard(
+    playerName,
+    tierNumber,
+    7
+  );
+    */
+  if (playerScoresArray && playerScoresArray.length > 0) {
+    let h2 = document.createElement("h5");
+    h2.setAttribute("class", "leaderboard-subtitle");
+    h2.innerText = "Your recent top speeds!";
+    leaderboardList.appendChild(h2);
+
+    playerScoresArray.forEach((element) => {
+      let div = document.createElement("div");
+      div.setAttribute("class", "leaderboard-row");
+
+      let span1 = document.createElement("span");
+      span1.innerText = playerName;
+      div.appendChild(span1);
+      let span2 = document.createElement("span");
+      span2.innerText = element.playtime;
+      div.appendChild(span2);
+      let span3 = document.createElement("span");
+      span3.innerHTML = getStarRating(tierNumber, element.playtime);
+      div.appendChild(span3);
+      leaderboardList.appendChild(div);
+    });
+  }
+}
+
+function getStarRating(tier, timeTaken) {
+  let stars = "";
+  if (tier === 1) {
+    if (timeTaken <= 10.5) stars = "⭐⭐⭐";
+    else if (timeTaken <= 12.5) stars = "⭐⭐";
+    else stars = "⭐";
+  } else if (tier === 2) {
+    if (timeTaken <= 14.6) stars = "⭐⭐⭐";
+    else if (timeTaken <= 16.3) stars = "⭐⭐";
+    else stars = "⭐";
+  } else if (tier === 3) {
+    if (timeTaken <= 16.8) stars = "⭐⭐⭐";
+    else if (timeTaken <= 19.2) stars = "⭐⭐";
+    else stars = "⭐";
+  }
+  return stars;
+}
+
+let redirectURL = "";
+
+const redirectPage = function (url) {
+  redirectURL = url;
+  location.assign(url);
+};
