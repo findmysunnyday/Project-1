@@ -99,6 +99,8 @@ function setTier(tier, button) {
   leaderboardContainer.classList.add("d-block");
   console.log("Tier selected:", currentTier);
   console.log("Tier speed:", tierSpeed, "Target clicks:", targetClicks);
+  playerName = playerNameInput.value.trim();
+  displayLeaderboard(playerName, currentTier);
 }
 
 function resetTierSettings() {
@@ -203,10 +205,9 @@ function endGame() {
 
   /* begin score calculation and stoering the score  */
   let elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
-  let player_score = (10 / elapsedTime) * 15;
-  console.log(`${startTime} ${elapsedTime}  ${player_score}`);
+  let player_score = Math.round((10 / elapsedTime) * targetClicks);
   storePlayerScore(player_score);
-  /* end score calculation and stoering the score */
+  /* end score calculation and storing the score */
 
   clearInterval(timerInterval);
   showNotification(`Congratulations! You reached ${targetClicks} clicks!`);
@@ -226,6 +227,7 @@ function resetGame() {
   welcomeMessageContainer.classList.add("d-none");
   gameModeTitle.classList.remove("d-none");
   leaderboardContainer.classList.remove("d-none");
+  displayLeaderboard(playerName, currentTier);
 
   // Resets the start page and game page visibility
   const startPage = document.getElementById("start-page");
@@ -239,9 +241,4 @@ function resetGame() {
   clicksAchieved = 0;
 }
 
-function addScoreToLeaderboard(playerName, score) {
-  const leaderboardList = document.getElementById("leaderboard-list");
-  const scoreEntry = document.createElement("div");
-  scoreEntry.textContent = `${playerName}: ${score}`;
-  leaderboardList.appendChild(scoreEntry);
-}
+function displayLeaderboard(playerName, tierNumber) {}
