@@ -38,7 +38,7 @@ body {
   padding: 0;
   height: 100vh;
   overflow-x: hidden;
-  background: url('../images/Project-Flashy.gif') no-repeat center center fixed;
+  background: url("../images/Project-Flashy.gif") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -74,13 +74,20 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.grid-item.clicked { background-color: #ffc107; }
-.grid-item.wrong-click { background-color: #dc3545; }
-.grid-item.highlight { background-color: #ffd700; }
+.grid-item.clicked {
+  background-color: #ffc107;
+}
+.grid-item.wrong-click {
+  background-color: #dc3545;
+}
+.grid-item.highlight {
+  background-color: #ffd700;
+}
 
 /* Transparent content areas for the game */
-#start-page, #game-page {
-  background-color: rgba(216, 230, 240, 0.9); 
+#start-page,
+#game-page {
+  background-color: rgba(216, 230, 240, 0.9);
   border-radius: 10px;
   padding: 20px;
   margin: 20px auto;
@@ -130,4 +137,37 @@ body {
 .active-square {
   background-color: #28a745;
   transition: background-color 0.3s ease;
+}
+
+/* Subtitle styles */
+.leaderboard-subtitle {
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  text-align: center;
+  padding: 5px 0;
+  margin: 0 0 10px 0;
+}
+
+/* Styles for leaderboard rows */
+.leaderboard-row {
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  display: flex; /* Enable flexbox layout */
+  justify-content: space-between; /* Evenly space out the spans */
+  align-items: center; /* Vertically center the spans */
+}
+
+/* Alternate row colors */
+.leaderboard-row:nth-child(odd) {
+  background-color: #f9f9f9; /* Light grey for odd rows */
+}
+
+.leaderboard-row:nth-child(even) {
+  background-color: #e9ecef; /* Slightly darker grey for even rows */
+}
+
+/* Optional: Hover effect */
+.leaderboard-row:hover {
+  background-color: #d4edda; /* Light green when hovering */
 }

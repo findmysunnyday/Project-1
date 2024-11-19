@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  /* Use a clean font */
+  margin: 20px;
+  /* Add some margin around the content */
+  text-align: center;
+  /* Center-align the content */
+}
+
+.content {
+  max-width: 800px;
+  /* Limit the width of the content */
+  margin: 0 auto;
+  /* Center the content horizontally */
+}
+
+.image {
+  margin-bottom: 20px;
+  /* Add space below the image */
+}
+
+.title {
+  font-size: 24px;
+  /* Make the title larger */
+  font-weight: bold;
+  /* Bold text */
+  margin-bottom: 20px;
+  /* Add space below the title */
+}
+
+.data-table {
+  width: 100%;
+  /* Make the table span the width of the container */
+  border-collapse: collapse;
+  /* Remove extra spacing between cells */
+  margin: 0 auto;
+  /* Center the table */
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #4d0b0b;
+  /* Add a border to cells */
+  padding: 10px;
+  /* Add some padding */
+  text-align: left;
+  /* Left-align the text */
+}
+
+.data-table th {
+  background-color: #6553d9;
+  /* Light gray background for headers */
+  font-weight: bold;
+  /* Bold headers */
+}

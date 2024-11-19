@@ -14,7 +14,7 @@ function storeCurrentPlayer(playerName, tierNumber) {
  * Store the current player with current score into the local storage
  * @param {*} score
  */
-function storePlayerScore(score) {
+function storePlayerScore(score, playtime) {
   const playerName = localStorage.getItem("playerName");
   const tierNumber = localStorage.getItem("tierNumber");
   const dateTimeNowString = JSON.stringify(new Date());
@@ -23,6 +23,7 @@ function storePlayerScore(score) {
     playerName: playerName,
     tierNumber: tierNumber,
     score: score,
+    playtime: playtime,
     completedDateTimeString: dateTimeNowString,
   };
 
