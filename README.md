@@ -41,7 +41,8 @@ SCREENSHOTS:
 ## Assets
 
 The assets here will be HTML, CSS, JavaScript file and links to the bootstrap files we used.
-
+![Bootstrap css library link:] (https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css)
+ 
 ## 💡 Hints
 
 
