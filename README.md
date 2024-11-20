@@ -31,7 +31,7 @@ When worker is falling asleep behind the computer and coffee just won't work, ha
 *It's done when the player can choose which tier to play to add difficulty to the game and challenge oneself.
 
 SCREENSHOTS:
-
+![Here are the screenshots in order of how you play.](https://findmysunnyday.github.io/Wake-Up-In-A-Flash/first%20screen%20shots%20flashy.jpg) 
 
 
 ## Assets
